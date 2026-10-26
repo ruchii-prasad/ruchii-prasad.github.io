@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruchi Prasad</title>
+<meta name="description" content="Ruchi Prasad — Electrical & Electronics Engineering, BITS Pilani Goa. Digital hardware and quantitative finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --body: #333333;
+    --muted: #5f6368;
+    --faint: #9aa0a6;
+    --line: #e8eaed;
+    --accent: #1f3a93;
+    --chip: #f4f6fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 760px; margin: 0 auto; padding: 14px 24px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .nav-name { font-weight: 600; color: var(--text); font-size: 15px; white-space: nowrap; }
+  .nav-name:hover { text-decoration: none; }
+  .nav-links { display: flex; gap: 22px; overflow-x: auto; }
+  .nav-links a { color: var(--muted); font-size: 14px; white-space: nowrap; }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero { padding: 88px 0 64px; border-bottom: 1px solid var(--line); }
+  .hero h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600; font-size: 44px; line-height: 1.15;
+    letter-spacing: -0.01em; margin-bottom: 12px;
+  }
+  .hero .role { color: var(--muted); font-size: 17px; margin-bottom: 24px; }
+  .hero .bio { max-width: 620px; margin-bottom: 28px; color: var(--body); }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 8px 16px; font-size: 14px; font-weight: 500;
+    border: 1px solid var(--line); border-radius: 6px; color: var(--text);
+    transition: border-color .15s, background .15s;
+  }
+  .btn:hover { border-color: var(--text); text-decoration: none; }
+  .btn.primary { background: var(--text); color: #fff; border-color: var(--text); }
+  .btn.primary:hover { background: #333; }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  main > section:last-child { border-bottom: none; }
+  h2 {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 28px;
+  }
+
+  .item { margin-bottom: 32px; }
+  .item:last-child { margin-bottom: 0; }
+  .item-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px; margin-bottom: 4px;
+  }
+  .item h3 { font-size: 17px; font-weight: 600; }
+  .item h3 a { color: var(--text); }
+  .item .meta { color: var(--faint); font-size: 14px; white-space: nowrap; }
+  .item .sub { color: var(--muted); font-size: 15px; margin-bottom: 6px; }
+  .item .desc { color: var(--body); font-size: 15px; }
+  .item .item-links { margin-top: 8px; font-size: 14px; display: flex; gap: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag {
+    font-size: 12px; font-weight: 500; color: var(--muted);
+    background: var(--chip); padding: 3px 9px; border-radius: 4px;
+  }
+  .status {
+    font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--accent); margin-left: 8px; vertical-align: 2px;
+  }
+
+  .abstract { margin-top: 10px; font-size: 14px; }
+  .abstract summary { cursor: pointer; color: var(--muted); font-weight: 500; width: fit-content; }
+  .abstract summary:hover { color: var(--text); }
+  .abstract p { margin-top: 8px; padding-left: 14px; border-left: 2px solid var(--line); color: var(--body); line-height: 1.7; }
+
+  .cite { margin-top: 6px; font-size: 14px; }
+  .cite summary { cursor: pointer; color: var(--muted); font-weight: 500; width: fit-content; }
+  .cite summary:hover { color: var(--text); }
+  .cite-box { margin-top: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; background: #fafbfc; }
+  .cite-row { display: flex; justify-content: space-between; align-items: center; margin: 4px 0 6px; }
+  .cite-row:not(:first-child) { margin-top: 14px; }
+  .cite-label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+  .cite pre { white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--body); line-height: 1.55; }
+  .copy { font: inherit; font-size: 12px; font-weight: 500; color: var(--text); background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 2px 10px; cursor: pointer; }
+  .copy:hover { border-color: var(--text); }
+
+  /* Achievements: compact list */
+  .ach { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px;
+         padding: 14px 0; border-top: 1px solid var(--line); }
+  .ach:first-of-type { border-top: none; padding-top: 0; }
+  .ach .title { font-weight: 600; font-size: 15px; }
+  .ach .meta { color: var(--faint); font-size: 14px; white-space: nowrap; }
+  .ach .desc { grid-column: 1 / -1; color: var(--muted); font-size: 14px; }
+
+  .skills { display: grid; grid-template-columns: 140px 1fr; gap: 10px 24px; font-size: 15px; margin-top: 28px; }
+  .skills dt { color: var(--muted); }
+
+  footer {
+    max-width: 712px; width: calc(100% - 48px); margin: 0 auto; padding: 40px 0 56px;
+    color: var(--faint); font-size: 13px; border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 600px) {
+    .nav-name { display: none; }
+    .nav-inner { justify-content: flex-start; }
+    header.hero { padding: 56px 0 44px; }
+    .hero h1 { font-size: 34px; }
+    .item-head { flex-direction: column; gap: 0; }
+    .ach { grid-template-columns: 1fr; }
+    .skills { grid-template-columns: 1fr; gap: 2px; }
+    .skills dd { margin-bottom: 10px; }
+  }
+  /* Contact form */
+  .contact-form { display: grid; gap: 14px; margin-top: 24px; max-width: 520px; }
+  .contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .contact-form label { display: grid; gap: 6px; font-size: 13px; font-weight: 500; color: var(--muted); }
+  .contact-form input, .contact-form textarea {
+    font: inherit; font-size: 15px; color: var(--text); background: #fff;
+    border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; width: 100%;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); }
+  .contact-form textarea { min-height: 130px; resize: vertical; }
+  .contact-form .hp { display: none; }
+  .contact-form button {
+    justify-self: start; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer;
+    background: var(--text); color: #fff; border: 1px solid var(--text); border-radius: 6px; padding: 9px 20px;
+  }
+  .contact-form button:disabled { opacity: .55; cursor: default; }
+  .form-status { font-size: 14px; min-height: 1.4em; }
+  .form-status.ok { color: #1e7a3c; }
+  .form-status.err { color: #b3261e; }
+  .loading { padding: 120px 0; color: var(--faint); text-align: center; font-size: 14px; }
+  @media (max-width: 600px) { .contact-form .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <a href="#" class="nav-name" id="nav-name"></a>
+  <div class="nav-links" id="nav-links"></div>
+</div></nav>
+
+<main id="main"><p class="loading">Loading…</p></main>
+<footer id="footer"></footer>
+
+<script>
+(async function () {
+  /* All content lives in /content/*.json — edit it from /admin, not here. */
+  const FILES = ["profile", "projects", "achievements", "research", "experience", "education", "settings"];
+
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const has = v => v != null && String(v).trim() !== "";
+  const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
+  const main = document.getElementById("main");
+
+  let D;
+  try {
+    const parts = await Promise.all(FILES.map(f =>
+      fetch(`content/${f}.json`, { cache: "no-cache" }).then(r => {
+        if (!r.ok) throw new Error(`${f}.json: ${r.status}`);
+        return r.json();
+      })));
+    D = Object.fromEntries(FILES.map((f, i) => [f, parts[i]]));
+  } catch (e) {
+    main.innerHTML = `<p class="loading">Couldn't load site content (${esc(e.message)}).<br>
+      If you opened this file directly from your computer, view it on the live site or through a local web server instead.</p>`;
+    return;
+  }
+
+  const P = D.profile || {};
+  const list = k => (D[k] && Array.isArray(D[k].items)) ? D[k].items.filter(x => x && has(x.title)) : [];
+
+  /* ---------- renderers ---------- */
+  function item(x, withCite) {
+    const href = has(x.pdf) ? x.pdf : x.link;
+    const track = has(x.pdf) ? ` data-goatcounter-click="pdf-${esc(slug(x.title))}" data-goatcounter-title="PDF: ${esc(x.title)}"` : "";
+    const title = has(href) ? `<a href="${esc(href)}"${track}>${esc(x.title)}</a>` : esc(x.title);
+    const links = [
+      has(x.pdf)  ? `<a href="${esc(x.pdf)}" target="_blank" rel="noopener"${track}>PDF</a>` : "",
+      has(x.code) ? `<a href="${esc(x.code)}">Code</a>` : "",
+      has(x.link) ? `<a href="${esc(x.link)}">${has(x.pdf) ? "Journal" : "View"}</a>` : ""
+    ].join("");
+    const tags = Array.isArray(x.tags) ? x.tags.filter(has) : [];
+    return `<div class="item">
+      <div class="item-head">
+        <h3>${title}${has(x.status) ? `<span class="status">${esc(x.status)}</span>` : ""}</h3>
+        ${has(x.date) ? `<span class="meta">${esc(x.date)}</span>` : ""}
+      </div>
+      ${has(x.sub) ? `<p class="sub">${esc(x.sub)}</p>` : ""}
+      ${has(x.desc) ? `<p class="desc">${esc(x.desc)}</p>` : ""}
+      ${tags.length ? `<div class="tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
+      ${links ? `<div class="item-links">${links}</div>` : ""}
+      ${has(x.abstract) ? `<details class="abstract"><summary>Abstract</summary><p>${esc(x.abstract)}</p></details>` : ""}
+      ${withCite ? citeBlock(x) : ""}
+    </div>`;
+  }
+
+  function ach(x) {
+    const title = has(x.link) ? `<a href="${esc(x.link)}">${esc(x.title)}</a>` : esc(x.title);
+    return `<div class="ach">
+      <span class="title">${title}</span>
+      ${has(x.date) ? `<span class="meta">${esc(x.date)}</span>` : "<span></span>"}
+      ${has(x.desc) ? `<span class="desc">${esc(x.desc)}</span>` : ""}
+    </div>`;
+  }
+
+  /* ---------- citations ---------- */
+  const splitName = full => { const p = String(full).trim().split(/\s+/); return { last: p.pop(), first: p }; };
+  const apaAuthor = full => { const { last, first } = splitName(full); return `${last}, ${first.map(f => f[0] + ".").join(" ")}`.replace(/, $/, ""); };
+  function apaAuthors(names) {
+    const a = names.map(apaAuthor);
+    return a.length === 1 ? a[0] : a.slice(0, -1).join(", ") + ", & " + a[a.length - 1];
+  }
+  function citeBlock(x) {
+    const authors = (Array.isArray(x.authors) && x.authors.filter(has).length) ? x.authors.filter(has) : [P.name];
+    const year = (String(x.date || "").match(/\d{4}/) || ["n.d."])[0];
+    let url = has(x.link) ? x.link : "";
+    if (!url && has(x.pdf)) { try { url = new URL(x.pdf, location.href).href; } catch (e) { url = x.pdf; } }
+    const apa = `${apaAuthors(authors)} (${year}). ${x.title}.` + (has(x.sub) ? ` ${x.sub}.` : "") + (url ? ` ${url}` : "");
+    const word = (String(x.title).toLowerCase().match(/[a-z]{4,}/) || ["paper"])[0];
+    const key = splitName(authors[0]).last.toLowerCase().replace(/[^a-z]/g, "") + year + word;
+    const bibAuthors = authors.map(n => { const { last, first } = splitName(n); return first.length ? `${last}, ${first.join(" ")}` : last; }).join(" and ");
+    const bib = `@misc{${key},\n  author = {${bibAuthors}},\n  title  = {${x.title}},\n  year   = {${year}},` +
+      (has(x.sub) ? `\n  note   = {${x.sub}},` : "") + (url ? `\n  url    = {${url}},` : "") + `\n}`;
+    return `<details class="cite"><summary>Cite</summary><div class="cite-box">
+      <div class="cite-row"><span class="cite-label">APA</span><button class="copy" type="button">Copy</button></div><pre>${esc(apa)}</pre>
+      <div class="cite-row"><span class="cite-label">BibTeX</span><button class="copy" type="button">Copy</button></div><pre>${esc(bib)}</pre>
+    </div></details>`;
+  }
+
+  /* ---------- page ---------- */
+  document.title = P.name || "Portfolio";
+  document.getElementById("nav-name").textContent = P.name || "";
+  document.getElementById("footer").textContent = `© ${new Date().getFullYear()} ${P.name || ""}`;
+
+  const sections = [
+    ["projects", "Projects", list("projects"), x => item(x)],
+    ["achievements", "Achievements", list("achievements"), ach],
+    ["experience", "Experience", list("experience"), x => item(x)],
+    ["research", "Research", list("research"), x => item(x, true)],
+  ].filter(s => s[2].length);
+
+  const buttons = [
+    has(P.resume)   ? `<a class="btn primary" href="${esc(P.resume)}" target="_blank" rel="noopener" data-goatcounter-click="resume" data-goatcounter-title="Résumé">Résumé</a>` : "",
+    has(P.github)   ? `<a class="btn" href="${esc(P.github)}">GitHub</a>` : "",
+    has(P.linkedin) ? `<a class="btn" href="${esc(P.linkedin)}">LinkedIn</a>` : "",
+    has(P.email)    ? `<a class="btn" href="mailto:${esc(P.email)}">Email</a>` : ""
+  ].join("");
+
+  let html = `<header class="hero">
+    <h1>${esc(P.name)}</h1>
+    ${has(P.role) ? `<p class="role">${esc(P.role)}</p>` : ""}
+    ${has(P.bio) ? `<p class="bio">${esc(P.bio)}</p>` : ""}
+    <div class="links">${buttons}</div>
+  </header>`;
+
+  for (const [id, label, items, render] of sections)
+    html += `<section id="${id}"><h2>${label}</h2>${items.map(render).join("")}</section>`;
+
+  const edu = list("education");
+  const skills = (D.education && Array.isArray(D.education.skills)) ? D.education.skills.filter(s => s && has(s.label)) : [];
+  const showEdu = edu.length || skills.length;
+  if (showEdu) {
+    html += `<section id="education"><h2>Education &amp; Skills</h2>
+      ${edu.map(x => item(x)).join("")}
+      ${skills.length ? `<dl class="skills">${skills.map(s => `<dt>${esc(s.label)}</dt><dd>${esc(s.value)}</dd>`).join("")}</dl>` : ""}
+    </section>`;
+  }
+
+  const formKey = D.settings && D.settings.contact_form_key;
+  const intro = [
+    has(P.email) ? `email me at <a href="mailto:${esc(P.email)}">${esc(P.email)}</a>` : "",
+    has(P.github) || has(P.linkedin) ? `find me on ${[has(P.github) ? `<a href="${esc(P.github)}">GitHub</a>` : "", has(P.linkedin) ? `<a href="${esc(P.linkedin)}">LinkedIn</a>` : ""].filter(Boolean).join(" and ")}` : ""
+  ].filter(Boolean).join(", or ");
+  html += `<section id="contact"><h2>Contact</h2>
+    <p class="desc">${has(formKey) ? "Send me a message below" + (intro ? ", " + intro : "") : (intro ? intro.charAt(0).toUpperCase() + intro.slice(1) : "")}.</p>
+    ${has(formKey) ? `<form class="contact-form" id="contact-form" novalidate>
+      <div class="row">
+        <label>Name<input name="name" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <label>Message<textarea name="message" required></textarea></label>
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+      <button type="submit">Send message</button>
+      <p class="form-status" id="form-status" role="status"></p>
+    </form>` : ""}
+  </section>`;
+
+  main.innerHTML = html;
+
+  const nav = sections.map(([id, label]) => `<a href="#${id}">${label}</a>`);
+  if (showEdu) nav.push(`<a href="#education">Education</a>`);
+  nav.push(`<a href="#contact">Contact</a>`);
+  document.getElementById("nav-links").innerHTML = nav.join("");
+  if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+
+  /* ---------- copy buttons ---------- */
+  document.addEventListener("click", e => {
+    const btn = e.target.closest && e.target.closest(".copy");
+    if (!btn) return;
+    const text = btn.parentElement.nextElementSibling.textContent;
+    const done = () => { btn.textContent = "Copied"; setTimeout(() => (btn.textContent = "Copy"), 1500); };
+    const fallback = () => {
+      const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+      t.select(); try { document.execCommand("copy"); done(); } catch (err) {} t.remove();
+    };
+    navigator.clipboard ? navigator.clipboard.writeText(text).then(done, fallback) : fallback();
+  });
+
+  /* ---------- contact form (Web3Forms) ---------- */
+  const form = document.getElementById("contact-form");
+  if (form) form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const status = document.getElementById("form-status");
+    const btn = form.querySelector("button");
+    const f = new FormData(form);
+    if (f.get("botcheck")) return;
+    const name = String(f.get("name") || "").trim(), email = String(f.get("email") || "").trim(), message = String(f.get("message") || "").trim();
+    if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.className = "form-status err"; status.textContent = "Please fill in your name, a valid email, and a message."; return;
+    }
+    btn.disabled = true; status.className = "form-status"; status.textContent = "Sending…";
+    try {
+      const r = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ access_key: formKey, subject: `Website message from ${name}`, from_name: name, name, email, message })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.success !== false) {
+        form.reset(); status.className = "form-status ok"; status.textContent = "Thanks — your message has been sent.";
+        if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: "contact-form-sent", title: "Contact form sent", event: true });
+      } else throw new Error(j.message || r.status);
+    } catch (err) {
+      status.className = "form-status err";
+      status.textContent = "Sorry, that didn't go through." + (has(P.email) ? ` You can email me directly at ${P.email}.` : "");
+    } finally { btn.disabled = false; }
+  });
+
+  /* ---------- analytics (GoatCounter) — loaded after content so click tracking binds ---------- */
+  const gc = D.settings && String(D.settings.goatcounter_code || "").trim().toLowerCase();
+  if (gc && /^[a-z0-9-]+$/.test(gc) && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+    const s = document.createElement("script");
+    s.async = true; s.src = "https://gc.zgo.at/count.js";
+    s.setAttribute("data-goatcounter", `https://${gc}.goatcounter.com/count`);
+    document.body.appendChild(s);
+  }
+})();
+</script>
+</body>
+</html>

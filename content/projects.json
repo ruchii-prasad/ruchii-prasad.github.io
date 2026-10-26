@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "title": "Protocol Emulator ASIC",
+      "status": "In progress",
+      "date": "2026 – present",
+      "sub": "Jane Street open-source ASIC competition",
+      "desc": "Designing a programmable I/O core that emulates serial protocols (UART, SPI, I²C), inspired by RP2040 PIO and TI PRU architectures. Custom ISA in Verilog, prototyped on FPGA, targeting tape-out through Tiny Tapeout on IHP 130nm.",
+      "tags": [
+        "Verilog",
+        "RTL",
+        "FPGA",
+        "ASIC"
+      ],
+      "code": "",
+      "link": ""
+    },
+    {
+      "title": "Limit Order Book & Matching Engine",
+      "status": "In progress",
+      "date": "2026",
+      "sub": "",
+      "desc": "Price-time priority order book and matching engine in C++, supporting limit, market, and cancel orders, built with a focus on low-latency data structures.",
+      "tags": [
+        "C++",
+        "Market microstructure"
+      ],
+      "code": "",
+      "link": ""
+    },
+    {
+      "title": "Options Market-Making Simulator",
+      "status": "",
+      "date": "2026",
+      "sub": "",
+      "desc": "C++ simulator for quoting options and dynamically delta-hedging inventory, used to study P&L, risk, and hedging behaviour under different market conditions.",
+      "tags": [
+        "C++",
+        "Options",
+        "Black-Scholes"
+      ],
+      "code": "",
+      "link": ""
+    },
+    {
+      "title": "Monte Carlo Stock Price Simulator",
+      "status": "",
+      "date": "2026",
+      "sub": "",
+      "desc": "Python simulation of geometric Brownian motion paths with confidence bands, Sharpe ratio, Value-at-Risk, and Black-Scholes option pricing.",
+      "tags": [
+        "Python",
+        "Monte Carlo",
+        "Risk"
+      ],
+      "code": "",
+      "link": ""
+    }
+  ]
+}

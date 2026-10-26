@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "title": "B.E. Electrical & Electronics Engineering",
+      "date": "2025 – 2029",
+      "sub": "BITS Pilani, Goa Campus · 2+2 dual-degree program",
+      "desc": ""
+    }
+  ],
+  "skills": [
+    {
+      "label": "Languages",
+      "value": "C, C++, Python, Verilog"
+    },
+    {
+      "label": "Hardware",
+      "value": "RTL design, FPGA prototyping, ASIC flow"
+    },
+    {
+      "label": "Quant",
+      "value": "Options pricing, Monte Carlo, market microstructure"
+    }
+  ]
+}
